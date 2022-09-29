@@ -113,7 +113,10 @@
 
 
 import 'package:flutter/material.dart';
-
+import 'package:flutter_demo/Pages/Login_Page.dart';
+import 'package:flutter_demo/Pages/home_page.dart';
+import 'package:flutter_demo/utils/routes.dart';
+// import 'package:google_fonts/google_fonts.dart';
 void main(List<String> args) {
   runApp(MyApp());
   }
@@ -125,13 +128,24 @@ class MyApp  extends StatelessWidget{
   Widget build(BuildContext context)
   {
     return MaterialApp(
-    home: Material(
-      child: Center(
-        child: Container(
-          child: Text("Satyam Gupta"),
-          ),  
-        ), 
-      )
+    // home: HomePage(),
+    themeMode: ThemeMode.light,
+
+    theme: ThemeData(
+      primarySwatch: Colors.deepPurple,
+      // fontFamily: GoogleFonts
+    ),
+    darkTheme: ThemeData(
+      brightness: Brightness.dark,
+      ),
+   
+    // initialRoute: "/Home",
+    routes: {
+      "/" : (context) => LoginPage(),
+      MyRoutes.homePage: (context) => HomePage(),
+      MyRoutes.loginPage : (context) => LoginPage(),
+    },
+
     );
     
   }
